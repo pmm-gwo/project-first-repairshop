@@ -14,5 +14,5 @@ import javax.persistence.Entity;
 
 public class EmployeeSkills extends Employee{
 
-    String name;
+    String skills;
 }
