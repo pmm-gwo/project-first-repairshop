@@ -2,6 +2,15 @@ package com.wsiiz.repairshop.enterprise.domain.branch;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BranchRepository extends JpaRepository<Branch,Long> {
+import java.util.List;
 
+public interface BranchRepository extends JpaRepository<Branch, Long> {
+
+    List<Branch> findAllByParentBranch_Id(Long id);
+
+    List<Branch> findAllByBranchAddress_LocalityBranch(String localityBranch);
 }
+
+
+
+

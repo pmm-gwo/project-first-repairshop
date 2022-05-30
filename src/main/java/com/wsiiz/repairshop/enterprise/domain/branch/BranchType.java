@@ -4,5 +4,4 @@ public enum BranchType {
     SERWIS,
     SPRZEDAZ,
     MIESZANY;
-
 }

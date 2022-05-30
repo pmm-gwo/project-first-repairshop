@@ -1,9 +1,10 @@
 package com.wsiiz.repairshop.enterprise.domain.branch;
 
-import javax.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Embeddable;
 
 @Embeddable
 @Data
@@ -11,8 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BranchAddress {
 
-    String localityBranch;
-    String streetBranch;
-    String apartmentNoBranch;
-    String postalCodeBranch;
+    private String localityBranch;
+    private String streetBranch;
+    private String apartmentNoBranch;
+    private String postalCodeBranch;
 }

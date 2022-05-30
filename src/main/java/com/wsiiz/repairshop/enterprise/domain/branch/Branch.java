@@ -1,33 +1,39 @@
 package com.wsiiz.repairshop.enterprise.domain.branch;
 
-import com.wsiiz.repairshop.enterprise.domain.employee.EmployeeType;
+import com.wsiiz.repairshop.enterprise.domain.employee.Employee;
 import com.wsiiz.repairshop.foundation.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import java.time.LocalDate;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Data
-@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 
 public class Branch extends BaseEntity {
-    String branchName;
-    @Enumerated(EnumType.STRING)
-    BranchType branchType;
-    Integer branch_ID;
 
+    @NotNull
+    @Size(min = 3)
+    private String branchName;
+
+    @Enumerated(EnumType.STRING)
+    private BranchType branchType;
+
+    @OneToMany
+    private List<Employee> branchEmployees;
 
     @Embedded
-    BranchAddress addressOfBranch;
+    private BranchAddress branchAddress;
 
+    @ManyToOne
+    private Branch parentBranch;
 }
+
